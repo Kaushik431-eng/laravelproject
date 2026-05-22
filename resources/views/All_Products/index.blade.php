@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>laravel crud</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  </head>
+  <body>
+          <div class="bg-dark text-center text-white py-3">
+    <h1 class="h2">Laravel CRUD</h1>
+</div>
+      
+
+    <div class="container-fluid mt-4">
+        <div class="d-flex justify-content-end">
+                <a href="{{ route('All_Products.create') }}" class="btn btn-primary mb-3">Create</a>
+        </div>
+        <div class="card p-0 mt-3">
+            <div class="card-header bg-dark text-white">
+                <h4>CONTACT LIST</h4>
+            </div>
+
+
+        <div class="card-body p-0">
+             <table class="table table-striped text-center">
+        <tr>
+            <th>Id</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+        <tr>
+            @foreach($All_Products as $All_Product)
+            <td>Id</td>
+            <td>Image</td>
+            <td>Name</td>
+            <td>Price</td>
+            <td>
+                <a href="{{ route('All_Products.edit', $All_Product->id)}}" class="btn btn-warning btn-sm">
+                    Edit
+                </a>
+
+                <a href="{{ route('All_Products.delete', $All_Product->id) }}"
+                               class="btn btn-dark btn-sm"
+                               onclick="return confirm('Are you sure you want to delete this record?');">
+                               Delete
+                            </a>
+            </td>
+        </tr>
+         @endforeach
+    </table>
+        </div>
+    </div>
+     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>
