@@ -12,5 +12,6 @@
       "dest": "public/index.php"
     }
   ],
-  "outputDirectory": "public"
+  "outputDirectory": "public",
+  "cleanUrls": true
 }
